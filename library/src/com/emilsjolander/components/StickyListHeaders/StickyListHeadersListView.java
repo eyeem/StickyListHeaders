@@ -389,7 +389,8 @@ public class StickyListHeadersListView extends ListView implements OnScrollListe
 			if(oldHeaderId != adapter.getHeaderId(firstVisibleItem)){
 				headerHasChanged = true;
 				header = adapter.getHeaderView(Math.max(0, firstVisibleItem-1), header);
-				header.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, headerHeight));
+				if(header != null)
+					header.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, headerHeight));
 			}
 			oldHeaderId = adapter.getHeaderId(firstVisibleItem);
 		}
